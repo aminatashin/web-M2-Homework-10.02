@@ -1,18 +1,22 @@
+let arrName = []
 
-
-
-const adding = function(){
-    let parentDiv = document.getElementById('list-list')
-    for(let i = 1 ; i<20 ; i++){
-        
-   let listItem = document.createElement('div')
-   listItem.id = i
-   parentDiv.appendChild(listItem)
-   let addValue = document.getElementsByClassName('form-control').value
-   listItem.innerText = addValue
-    }  
+const addName = function(){
     
+    let newInput = document.getElementById('name')
+    let newName = newInput.value
+    arrName.push(newName)
+
+    let ulShwo = document.getElementById('show')
+    let liName = document.createElement('li')
+    
+    liName.addEventListener('click', function(){
+        deleteName(liName)
+    })
+    liName.innerText = newName
+    ulShwo.appendChild(liName)
+
+
 }
-adding()
-
-
+const deleteName = function(HTMLElement){
+    HTMLElement.remove()
+}
